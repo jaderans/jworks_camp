@@ -1,0 +1,19 @@
+node_modules/
+dist/
+dev-dist/
+coverage/
+test-results/
+playwright-report/
+*.log
+.DS_Store
+.env.local
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Private working files: the content planner (performance numbers, Drive links)
+# and saved screenshots of other creators' posts. The app imports the planner
+# in the browser instead, so none of it needs to be in this public repository.
+Jworks Previous Campaigns/
+*.xlsx

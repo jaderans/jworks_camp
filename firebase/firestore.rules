@@ -1,0 +1,170 @@
+rules_version = '2';
+
+// JoshWorks Campaigns — Firestore security rules.
+// Every record lives under camp/{ws}/t_{table}/{id}. Access is by verified email:
+// the owner writes camp/{ws}/access/{email} = { role, memberId, active } for each person.
+//   owner    — everything
+//   manager  — content, clients, campaigns, funnels, packages, proposals, contracts; not the team or settings
+//   designer — content (posts, comments, ideas, caption blocks, trends, hooks, reports, results);
+//              reads the team, clients, campaigns and funnels
+// Packages, proposals and contracts are owner/manager only; designers never receive them.
+// Nothing is hard-deleted (the app writes tombstones), and a write can never replace a
+// newer copy of a record (last change wins, even after working offline).
+// If JoshWorks POS uses the same Firebase project, merge its `match /ws/{ws}` block into this file.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+    function myEmail() {
+      return request.auth.token.email.lower();
+    }
+    function wsDoc(ws) {
+      return /databases/$(database)/documents/camp/$(ws);
+    }
+    function accessPath(ws) {
+      return /databases/$(database)/documents/camp/$(ws)/access/$(myEmail());
+    }
+    function isCreator(ws) {
+      return signedIn() && exists(wsDoc(ws)) && get(wsDoc(ws)).data.ownerUid == request.auth.uid;
+    }
+    function hasAccess(ws) {
+      return signedIn() && exists(accessPath(ws)) && get(accessPath(ws)).data.active == true;
+    }
+    function role(ws) {
+      return get(accessPath(ws)).data.role;
+    }
+    function isOwner(ws) {
+      return isCreator(ws) || (hasAccess(ws) && role(ws) == 'owner');
+    }
+    function isManager(ws) {
+      return isOwner(ws) || (hasAccess(ws) && role(ws) == 'manager');
+    }
+    function isTeam(ws) {
+      return isManager(ws) || (hasAccess(ws) && role(ws) == 'designer');
+    }
+    // Last change wins: an update must not be older than what is stored.
+    function notOlder() {
+      return !('updatedAt' in resource.data) || request.resource.data.updatedAt >= resource.data.updatedAt;
+    }
+
+    match /camp/{ws} {
+      allow read: if signedIn() && (resource == null || resource.data.ownerUid == request.auth.uid || hasAccess(ws));
+      allow create: if signedIn() && request.resource.data.ownerUid == request.auth.uid;
+      allow update: if isOwner(ws) && request.resource.data.ownerUid == resource.data.ownerUid;
+
+      match /access/{email} {
+        allow read: if signedIn() && (email == myEmail() || isOwner(ws));
+        allow write: if isOwner(ws);
+      }
+
+      // Settings: the owner writes. Managers read everything but the PIN;
+      // designers read the brand, voice, rhythm, checklist and AI model choice (not rates or contract terms).
+      match /t_settings/{key} {
+        allow read: if isOwner(ws)
+          || (isManager(ws) && key != 'security')
+          || (isTeam(ws) && key in ['business', 'voice', 'cadence', 'checklist', 'ai']);
+        allow create: if isOwner(ws);
+        allow update: if isOwner(ws) && notOlder();
+        allow delete: if false;
+      }
+
+      // The team list: everyone reads, the owner writes.
+      match /t_members/{id} {
+        allow read: if isTeam(ws);
+        allow create: if isOwner(ws);
+        allow update: if isOwner(ws) && notOlder();
+        allow delete: if false;
+      }
+
+      // Clients, campaigns and funnels: the team reads; owner and managers write.
+      match /t_clients/{id} {
+        allow read: if isTeam(ws);
+        allow create: if isManager(ws);
+        allow update: if isManager(ws) && notOlder();
+        allow delete: if false;
+      }
+      match /t_campaigns/{id} {
+        allow read: if isTeam(ws);
+        allow create: if isManager(ws);
+        allow update: if isManager(ws) && notOlder();
+        allow delete: if false;
+      }
+      match /t_funnels/{id} {
+        allow read: if isTeam(ws);
+        allow create: if isManager(ws);
+        allow update: if isManager(ws) && notOlder();
+        allow delete: if false;
+      }
+
+      // Money and legal documents: owner and managers only.
+      match /t_packages/{id} {
+        allow read, create: if isManager(ws);
+        allow update: if isManager(ws) && notOlder();
+        allow delete: if false;
+      }
+      match /t_proposals/{id} {
+        allow read, create: if isManager(ws);
+        allow update: if isManager(ws) && notOlder();
+        allow delete: if false;
+      }
+      match /t_contracts/{id} {
+        allow read, create: if isManager(ws);
+        allow update: if isManager(ws) && notOlder();
+        allow delete: if false;
+      }
+
+      // Content: the whole team reads and writes.
+      match /t_posts/{id} {
+        allow read, create: if isTeam(ws);
+        allow update: if isTeam(ws) && notOlder();
+        allow delete: if false;
+      }
+      match /t_comments/{id} {
+        allow read, create: if isTeam(ws);
+        allow update: if isTeam(ws) && notOlder();
+        allow delete: if false;
+      }
+      match /t_ideas/{id} {
+        allow read, create: if isTeam(ws);
+        allow update: if isTeam(ws) && notOlder();
+        allow delete: if false;
+      }
+      match /t_snippets/{id} {
+        allow read, create: if isTeam(ws);
+        allow update: if isTeam(ws) && notOlder();
+        allow delete: if false;
+      }
+      match /t_trends/{id} {
+        allow read, create: if isTeam(ws);
+        allow update: if isTeam(ws) && notOlder();
+        allow delete: if false;
+      }
+      match /t_hooks/{id} {
+        allow read, create: if isTeam(ws);
+        allow update: if isTeam(ws) && notOlder();
+        allow delete: if false;
+      }
+      match /t_reports/{id} {
+        allow read, create: if isTeam(ws);
+        allow update: if isTeam(ws) && notOlder();
+        allow delete: if false;
+      }
+      match /t_metrics/{id} {
+        allow read, create: if isTeam(ws);
+        allow update: if isTeam(ws) && notOlder();
+        allow delete: if false;
+      }
+
+      // Activity: everyone adds entries; owner and managers read the log.
+      match /t_audit/{id} {
+        allow read: if isManager(ws);
+        allow create: if isTeam(ws);
+        allow update: if isManager(ws) && notOlder();
+        allow delete: if false;
+      }
+    }
+  }
+}

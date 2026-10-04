@@ -1,0 +1,121 @@
+{
+  "weekOf": "2026-10-05",
+  "generatedAt": "2026-10-05T09:00:00+08:00",
+  "summary": "Spooky season and the Undas long weekend (Sat, Oct 31 to Mon, Nov 2) shape October, and the quick TikTok wins are low-effort sounds you can film in the studio. Instagram is opening up per-slide captions on carousels (good for Monday educational posts), and Meta now sells clickable links in organic posts through Meta One (skip it for now). Mon, Nov 2 is a special non-working day, so the first post back is Tue, Nov 3, and 11.11 lands on the Wednesday flex day.",
+  "items": [
+    {
+      "id": "hold-it-down",
+      "title": "“Someone’s gotta hold it down”",
+      "platform": "tiktok",
+      "kind": "sound",
+      "what": "One unpolished shot of the work that keeps going while everyone else is away, with a text overlay instead of a voiceover. Sound: “Ain’t In LA” by ADÉLA.",
+      "why": "No editing, relatable, and it shows a real person at work, which the feeds reward over polished ads.",
+      "howJoshWorks": "Film the desk during the Undas long weekend: “Everyone’s at the province. Someone’s gotta finish the client’s logo files.” Check that the sound is available to business accounts before you shoot.",
+      "postIdea": { "title": "Someone’s gotta hold it down (studio edition)", "format": "Reel", "themeKey": "fri-behind" },
+      "expires": "2026-10-31",
+      "sources": [{ "title": "NapoleonCat: Current TikTok trends, October 2026", "url": "https://napoleoncat.com/blog/tiktok-trends/" }]
+    },
+    {
+      "id": "its-a-clock",
+      "title": "“It’s a clock” hindsight moments",
+      "platform": "tiktok",
+      "kind": "sound",
+      "what": "A text-led clip where one specific realisation lands exactly when the audio hits. Sound: original sound by Yartrix.",
+      "why": "One memory, one punchline: easy to film, and designers and small-business owners see themselves in it.",
+      "howJoshWorks": "“Me realising the ‘simple logo’ brief was a whole brand system.” Aim it at yourselves or the industry, never at a named client, and cut on the beat.",
+      "postIdea": { "title": "When the “simple logo” brief was a brand system", "format": "Reel", "themeKey": "thu-designer" },
+      "expires": "2026-10-31",
+      "sources": [{ "title": "NapoleonCat: Current TikTok trends, October 2026", "url": "https://napoleoncat.com/blog/tiktok-trends/" }]
+    },
+    {
+      "id": "everyday-horror",
+      "title": "Everyday horror stories instead of pumpkins",
+      "platform": "any",
+      "kind": "format",
+      "what": "Halloween posts built on the annoying, awkward or mildly terrifying moments of your own work rather than spooky props.",
+      "why": "It fits any brand, it is relatable, and it starts comments (“mine was worse”).",
+      "howJoshWorks": "Your planner’s “Client Feedback Horror Stories” post is waiting for a date because posting restarts after Halloween. If you post once before November, make it this one on Fri, Oct 30: “make the logo bigger”, “can you make it pop”, “my pamangkin can do it for free”.",
+      "postIdea": { "title": "Client Feedback Horror Stories", "format": "Carousel", "themeKey": "fri-behind" },
+      "expires": "2026-10-31",
+      "sources": [{ "title": "Pepper Agency: TikTok & Instagram trends for October 2026", "url": "https://www.pepperagency.com/blog/tiktok-instagram-trends-for-october-2026-and-how-brands-can-actually-use-them" }]
+    },
+    {
+      "id": "comments-decide",
+      "title": "Let the comments decide",
+      "platform": "instagram",
+      "kind": "format",
+      "what": "Posts left unfinished on purpose: followers pick the option, send a version or choose what happens next.",
+      "why": "Comments and replies count for more than likes, and people come back to see the result.",
+      "howJoshWorks": "Show two directions for a mascot or a shirt print and finish whichever wins in the comments, then post the final on the next Fun Friday. It pairs with the planner’s “This or That” poll on Fri, Nov 6.",
+      "postIdea": { "title": "You pick, we finish: A or B?", "format": "Carousel", "themeKey": "tue-portfolio" },
+      "expires": null,
+      "sources": [{ "title": "Pepper Agency: TikTok & Instagram trends for October 2026", "url": "https://www.pepperagency.com/blog/tiktok-instagram-trends-for-october-2026-and-how-brands-can-actually-use-them" }]
+    },
+    {
+      "id": "ig-slide-captions",
+      "title": "Instagram: a caption for every carousel slide",
+      "platform": "instagram",
+      "kind": "platform",
+      "what": "Instagram has opened up per-slide captions, so each slide of a carousel can carry its own text instead of one caption for the whole post.",
+      "why": "Carousels already earn your saves; a short line under each slide keeps people swiping and gives the post more searchable words.",
+      "howJoshWorks": "Use it on the educational carousels: Typography 101 (Wed, Nov 4) can explain one pairing rule per slide. Check whether your account has it yet; if not, keep the single caption.",
+      "postIdea": null,
+      "expires": null,
+      "sources": [{ "title": "NapoleonCat: New Instagram updates and features", "url": "https://napoleoncat.com/blog/instagram-new-features-and-updates/" }]
+    },
+    {
+      "id": "chaos-packaging",
+      "title": "Chaos packaging and hyper-bold type",
+      "platform": "any",
+      "kind": "design",
+      "what": "Maximalist packaging and layouts: clashing colours, collage, layered type and heavy, high-contrast headlines, as a reaction to sterile minimalism.",
+      "why": "Brands want to be remembered on a crowded shelf and in a fast feed, and a loud identity system is easy to spot in both.",
+      "howJoshWorks": "Portfolio Tuesday: take one past label or packaging job and show the clean version next to a “chaos” version, then ask which one people would pick up. Keep the client’s colours so it still reads as their brand.",
+      "postIdea": { "title": "Clean vs chaos: same label, two directions", "format": "Carousel", "themeKey": "tue-portfolio" },
+      "expires": null,
+      "sources": [
+        { "title": "Envato: The chaos packaging trend", "url": "https://elements.envato.com/learn/chaos-packaging-trend" },
+        { "title": "Jukebox Print: The biggest graphic design trends for 2026", "url": "https://www.jukeboxprint.com/blog/20-of-the-biggest-graphic-design-trends-for-2026" }
+      ]
+    },
+    {
+      "id": "christmas-rush",
+      "title": "“Lock in” before the Christmas rush",
+      "platform": "facebook",
+      "kind": "local",
+      "what": "Practical, saveable posts that help people prepare for November and December before it gets busy.",
+      "why": "A useful checklist gets saved and shared, and it puts your services in front of businesses right when they start planning the holidays.",
+      "howJoshWorks": "A checklist for Iloilo small businesses: holiday packaging, sticker labels, team shirts and a Christmas post template pack, with an order-by date. End with “DM us START” and point to the free Christmas template pack on Fri, Nov 13.",
+      "postIdea": { "title": "Christmas-ready checklist for small businesses", "format": "Carousel", "themeKey": "mon-edu" },
+      "expires": "2026-11-20",
+      "sources": [{ "title": "Pepper Agency: TikTok & Instagram trends for October 2026", "url": "https://www.pepperagency.com/blog/tiktok-instagram-trends-for-october-2026-and-how-brands-can-actually-use-them" }]
+    },
+    {
+      "id": "meta-one-links",
+      "title": "Meta One: clickable links in organic posts (paid)",
+      "platform": "facebook",
+      "kind": "platform",
+      "what": "Meta’s new Meta One subscription (September 2026) lets paying businesses add clickable links to organic Facebook and Instagram posts and Reels.",
+      "why": "Links in Instagram captions have always been dead text; this changes that, but only for subscribers.",
+      "howJoshWorks": "Not worth paying for yet: keep “DM us START” and the link in bio. Revisit when SMM clients want direct shop links, and price it into their package if they do.",
+      "postIdea": null,
+      "expires": null,
+      "sources": [{ "title": "HeyOrca: Facebook updates in 2026", "url": "https://www.heyorca.com/blog/facebook-social-news" }]
+    }
+  ],
+  "dates": [
+    { "date": "2026-10-09", "name": "MassKara Festival highlights (Bacolod), Oct 9–18", "idea": "Next door to Iloilo: save “What if MassKara had a brand system?” for the WHAT IF series." },
+    { "date": "2026-10-30", "name": "Last Friday before Undas", "idea": "The one optional post before the restart: Client Feedback Horror Stories." },
+    { "date": "2026-10-31", "name": "Halloween; the Undas long weekend starts", "idea": "Most people travel to the province or visit cemeteries until Monday." },
+    { "date": "2026-11-02", "name": "All Souls’ Day (special non-working day)", "idea": "No post. The first post back is CONCEPT DROP #1 on Tue, Nov 3." },
+    { "date": "2026-11-11", "name": "11.11 sale", "idea": "Falls on the Wednesday flex day: a founding-client SMM offer or a sticker-pack bundle." }
+  ],
+  "sources": [
+    { "title": "NapoleonCat: Current TikTok trends, October 2026", "url": "https://napoleoncat.com/blog/tiktok-trends/" },
+    { "title": "Pepper Agency: TikTok & Instagram trends for October 2026", "url": "https://www.pepperagency.com/blog/tiktok-instagram-trends-for-october-2026-and-how-brands-can-actually-use-them" },
+    { "title": "NapoleonCat: New Instagram updates and features", "url": "https://napoleoncat.com/blog/instagram-new-features-and-updates/" },
+    { "title": "HeyOrca: Facebook updates in 2026", "url": "https://www.heyorca.com/blog/facebook-social-news" },
+    { "title": "Inquirer: 2026 regular holidays and special non-working days", "url": "https://newsinfo.inquirer.net/2104754/list-2026-regular-holidays-special-non-working-days" },
+    { "title": "Bacolod City: MassKara Festival 2026 set on October 1–18", "url": "https://bacolodcity.gov.ph/masskara-festival-2026-set-on-october-1-18/" }
+  ]
+}
