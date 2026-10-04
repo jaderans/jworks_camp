@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import { strToU8, zipSync } from 'fflate';
 import { readXlsx, cellText } from '../src/domain/xlsx';
@@ -118,7 +118,11 @@ describe('planner parsing', () => {
 const REAL = 'Jworks Previous Campaigns/JoshWorks_Content_Planner_Jun15-Nov_2026 (1).xlsx';
 
 describe.skipIf(!existsSync(REAL))('the JoshWorks Jun–Nov 2026 planner', () => {
-  const p = parsePlanner(readXlsx(new Uint8Array(readFileSync(REAL))));
+  // Read it in beforeAll: a skipped describe still runs its body, and CI has no copy of the private file.
+  let p: ReturnType<typeof parsePlanner>;
+  beforeAll(() => {
+    p = parsePlanner(readXlsx(new Uint8Array(readFileSync(REAL))));
+  });
 
   it('finds every tab', () => {
     expect(p.sheetsFound.length).toBe(7);
